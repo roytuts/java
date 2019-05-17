@@ -1,0 +1,1 @@
+You can read the tutorial https://www.jeejava.com/read-last-n-lines-from-a-file/
