@@ -1,0 +1,13 @@
+apply plugin: 'java'
+    
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+	compile("org.apache.poi:poi-ooxml:4.1.0")
+}
