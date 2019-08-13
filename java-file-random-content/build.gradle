@@ -1,0 +1,11 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.kohsuke:wordnet-random-name:1.3'
+}
