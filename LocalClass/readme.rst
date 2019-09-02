@@ -1,0 +1,1 @@
+You can read tutorial at https://www.jeejava.com/local-class-in-java/
