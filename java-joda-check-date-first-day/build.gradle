@@ -1,0 +1,16 @@
+plugins {
+    id 'java-library'
+}
+
+sourceCompatibility = 12
+targetCompatibility = 12
+
+repositories {
+	mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation 'joda-time:joda-time:2.10.3'
+    testImplementation 'junit:junit:4.12'
+}
