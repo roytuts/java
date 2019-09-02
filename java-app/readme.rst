@@ -1,1 +1,0 @@
-You can read tutorial https://www.jeejava.com/check-a-given-date-is-first-day-of-month-using-joda-api/
