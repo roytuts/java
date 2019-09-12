@@ -1,1 +1,1 @@
-You can read tutorial https://www.jeejava.com/sanitize-json-using-java/
+You can read tutorial https://www.roytuts.com/sanitize-json-using-java/

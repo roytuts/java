@@ -1,4 +1,4 @@
-package com.jeejava.local.clazz;
+package com.roytuts.local.clazz;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

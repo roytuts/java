@@ -1,1 +1,1 @@
-You can go through the tutorial https://www.jeejava.com/string-reverse-example-in-java/
+You can go through the tutorial https://www.roytuts.com/string-reverse-example-in-java/

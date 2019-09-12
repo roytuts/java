@@ -1,1 +1,1 @@
-You can go through the tutorial https://www.jeejava.com/van-eck-sequence-using-java/
+You can go through the tutorial https://www.roytuts.com/van-eck-sequence-using-java/

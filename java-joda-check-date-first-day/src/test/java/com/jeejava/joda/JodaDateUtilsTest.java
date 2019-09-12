@@ -1,4 +1,4 @@
-package com.jeejava.joda;
+package com.roytuts.joda;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;

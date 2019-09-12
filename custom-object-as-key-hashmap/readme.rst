@@ -1,1 +1,1 @@
-You can read tutorial https://www.jeejava.com/custom-object-as-a-key-in-hashmap/
+You can read tutorial https://www.roytuts.com/custom-object-as-a-key-in-hashmap/

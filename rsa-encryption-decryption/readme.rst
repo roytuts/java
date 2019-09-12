@@ -1,1 +1,1 @@
-You can read tutorial https://www.jeejava.com/encryption-and-decryption-using-rsa-in-java/
+You can read tutorial https://www.roytuts.com/encryption-and-decryption-using-rsa-in-java/

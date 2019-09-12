@@ -1,1 +1,1 @@
-You can read tutorial https://www.jeejava.com/convert-milliseconds-into-years-months-weeks-days-hours-minutes-seconds-in-java/
+You can read tutorial https://www.roytuts.com/convert-milliseconds-into-years-months-weeks-days-hours-minutes-seconds-in-java/

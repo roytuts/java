@@ -1,1 +1,1 @@
-You can read tutorial at https://www.jeejava.com/local-class-in-java/
+You can read tutorial at https://www.roytuts.com/local-class-in-java/

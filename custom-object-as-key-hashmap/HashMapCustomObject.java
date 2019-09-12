@@ -1,4 +1,4 @@
-package com.jeejava.hashmap;
+package com.roytuts.hashmap;
 
 import java.util.HashMap;
 import java.util.Map;
