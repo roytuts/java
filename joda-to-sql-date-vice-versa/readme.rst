@@ -1,0 +1,1 @@
+You can read tutorial https://www.roytuts.com/conversion-of-joda-date-time-to-sql-timestamp-and-vice-versa/
