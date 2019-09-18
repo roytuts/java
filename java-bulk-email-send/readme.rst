@@ -1,0 +1,1 @@
+You can read tutorial https://www.roytuts.com/send-bulk-mails-using-java/

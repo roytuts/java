@@ -1,0 +1,14 @@
+plugins {
+    id 'java-library'
+}
+
+sourceCompatibility = 12
+targetCompatibility = 12
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    implementation 'javax.mail:javax.mail-api:1.6.2'
+}
