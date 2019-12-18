@@ -9,6 +9,7 @@
 	<packaging>jar</packaging>
 
 	<properties>
+		<protobuf.version>3.11.1</protobuf.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -16,7 +17,7 @@
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
-			<version>3.10.0</version>
+			<version>${protobuf.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -46,7 +47,7 @@
 					<protoSourceRoot>src/main/resources/protoc</protoSourceRoot>
 					<outputDirectory>src/main/java</outputDirectory>
 					<clearOutputDirectory>false</clearOutputDirectory>
-					<protocArtifact>com.google.protobuf:protoc:3.10.0:exe:${os.detected.classifier}</protocArtifact>
+					<protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
 				</configuration>
 				<executions>
 					<execution>
