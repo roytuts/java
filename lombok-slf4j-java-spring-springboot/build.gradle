@@ -1,0 +1,18 @@
+plugins {
+    id 'java-library'
+}
+
+sourceCompatibility = 12
+targetCompatibility = 12
+
+repositories {
+	mavenCentral()
+    maven {
+    	url "http://projectlombok.org/mavenrepo"
+    }    
+}
+
+dependencies {
+	implementation('org.projectlombok:lombok:1.18.10')
+	implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.13.0'
+}

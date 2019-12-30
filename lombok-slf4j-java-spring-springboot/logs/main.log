@@ -1,0 +1,16 @@
+2019.12.29 17:56:26.990 [DEBUG] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Debug Message
+2019.12.29 17:56:26.995 [WARN] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Warn Message
+2019.12.29 17:56:26.997 [ERROR] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Error Message
+2019.12.29 17:56:26.997 [INFO] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Info Message
+2019.12.29 17:56:27.000 [DEBUG] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Debug Message
+2019.12.29 17:56:27.000 [WARN] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Warn Message
+2019.12.29 17:56:27.001 [ERROR] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Error Message
+2019.12.29 17:56:27.001 [INFO] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Info Message
+2019.12.29 17:56:27.002 [DEBUG] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Module1 Debug Message
+2019.12.29 17:56:27.002 [WARN] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Module1 Warn Message
+2019.12.29 17:56:27.003 [ERROR] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Module1 Error Message
+2019.12.29 17:56:27.003 [INFO] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Module1 Info Message
+2019.12.29 17:56:27.004 [DEBUG] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Module2 Debug Message
+2019.12.29 17:56:27.004 [WARN] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Module2 Warn Message
+2019.12.29 17:56:27.005 [ERROR] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Module2 Error Message
+2019.12.29 17:56:27.005 [INFO] com.roytuts.lombok.slf4j.java.spring.springboot.LombokSlf4jApp: Module2 Info Message
