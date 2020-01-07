@@ -1,0 +1,1 @@
+You can read tutorial https://www.roytuts.com/how-to-group-objects-by-their-property-using-java-stream/
