@@ -1,6 +1,8 @@
 package com.roytuts.stringreverse;
 
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class StringReverseExample {
 
@@ -25,8 +27,12 @@ public class StringReverseExample {
 		reverse = sr.usingRecursion(word);
 		System.out.printf(" original String : %s , reversed String : %s %n", word, reverse);
 
-		// reverse String using Java 8 IntSTream
+		// reverse String using Java 8 IntStream
 		reverse = sr.usingJava8LambdaStream(word);
+		System.out.printf(" original String : %s , reversed String : %s %n", word, reverse);
+
+		// reverse String using Java 8 Stream
+		reverse = sr.usingAnotherJava8LambdaStream(word);
 		System.out.printf(" original String : %s , reversed String : %s %n", word, reverse);
 	}
 
@@ -67,6 +73,10 @@ public class StringReverseExample {
 	public String usingJava8LambdaStream(final String string) {
 		return IntStream.range(0, string.length()).map(i -> string.charAt(string.length() - i - 1))
 				.collect(StringBuilder::new, (s, c) -> s.append((char) c), StringBuilder::append).toString();
+	}
+
+	public String usingAnotherJava8LambdaStream(final String string) {
+		return Stream.of(string).map(word -> new StringBuilder(word).reverse()).collect(Collectors.joining(" "));
 	}
 
 }
