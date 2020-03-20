@@ -1,0 +1,63 @@
+package com.roytuts.merge.two.arrays.unique.values;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class ArrayMergeUniqueValues {
+
+	public static void main(String[] args) {
+		String[] arr1 = new String[] { "Ava", "Emma", "Olivia" };
+		String[] arr2 = new String[] { "Olivia", "Sophia", "Emma" };
+
+		String[] arr = mergeArrays(arr1, arr2);
+		System.out.println(Arrays.toString(arr));
+
+		arr = mergeArrays2(arr1, arr2);
+		System.out.println(Arrays.toString(arr));
+	}
+
+	public static String[] mergeArrays(String[] arr1, String[] arr2) {
+		List<String> list = new ArrayList<>(Arrays.asList(arr1));
+		list.addAll(Arrays.asList(arr2));
+
+		Set<String> set = new HashSet<String>();
+		for (String x : list) {
+			set.add(x);
+		}
+
+		String[] arr = new String[set.size()];
+		set.toArray(arr);
+
+		return arr;
+	}
+
+	public static String[] mergeArrays2(String[] arr1, String[] arr2) {
+		String[] arr = new String[arr1.length + arr2.length];
+		int count = 0;
+
+		for (int i = 0; i < arr1.length; i++) {
+			arr[i] = arr1[i];
+			count++;
+		}
+
+		for (int j = 0; j < arr2.length; j++) {
+			arr[count++] = arr2[j];
+		}
+
+		List<String> list = Arrays.asList(arr);
+
+		Set<String> set = new HashSet<String>();
+		for (String x : list) {
+			set.add(x);
+		}
+
+		arr = new String[set.size()];
+		set.toArray(arr);
+
+		return arr;
+	}
+
+}
