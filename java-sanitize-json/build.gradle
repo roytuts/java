@@ -1,0 +1,11 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+	implementation 'com.mikesamuel:json-sanitizer:1.2.1'
+}
