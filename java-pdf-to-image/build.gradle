@@ -1,0 +1,11 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.apache.pdfbox:pdfbox:2.0.20'
+}
