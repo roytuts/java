@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SOAP-ENV:Envelope
+	xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header />
+	<SOAP-ENV:Body>
+		<ns2:getUserDetailsResponse
+			xmlns:ns2="https://www.roytuts.com/UserService">
+			<ns2:users>
+				<ns2:id>4</ns2:id>
+				<ns2:name>Liton Sarkar</ns2:name>
+				<ns2:email>liton.sarkar@email.com</ns2:email>
+				<ns2:address>
+					<ns2:street>Sukanta Nagar</ns2:street>
+					<ns2:city>Kolkata</ns2:city>
+					<ns2:state>WB</ns2:state>
+					<ns2:zip>700098</ns2:zip>
+					<ns2:country>India</ns2:country>
+					<ns2:addressType>COMMUNICATION</ns2:addressType>
+				</ns2:address>
+			</ns2:users>
+		</ns2:getUserDetailsResponse>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
