@@ -1,1 +1,0 @@
-You can read tutorial https://www.roytuts.com/custom-object-as-a-key-in-hashmap/
