@@ -12,9 +12,9 @@ public class PdfToImageConverter {
 
 	public static void main(String[] args) {
 		try {
-			String destinationDir = "C:\\Users\\Desktop\\pdf-to-image\\";
+			String destinationDir = "pdf-to-image/";
 
-			File sourceFile = new File("C:\\Users\\Desktop\\sample.pdf");
+			File sourceFile = new File("sample.pdf");
 			File destinationFile = new File(destinationDir);
 
 			if (!destinationFile.exists()) {
