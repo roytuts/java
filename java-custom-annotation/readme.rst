@@ -1,0 +1,1 @@
+You can go through the tutorial https://roytuts.com/custom-annotation-example-in-java/
