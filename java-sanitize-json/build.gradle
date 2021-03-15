@@ -7,5 +7,5 @@ repositories {
 }
 
 dependencies {
-	implementation 'com.mikesamuel:json-sanitizer:1.2.1'
+	implementation 'com.mikesamuel:json-sanitizer:1.2.1' //1.2.2
 }
