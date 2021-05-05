@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 public class JavaCountWordParaSentenceWhitespaceTextFile {
 
 	public static void main(String[] args) throws IOException {
-		countWordParaSentenceWhitespaceTextFile(new File("C:/jee_workspace/sample.txt"));
+		countWordParaSentenceWhitespaceTextFile(new File("sample.txt"));
 	}
 
 	public static void countWordParaSentenceWhitespaceTextFile(final File file) throws IOException {
@@ -41,6 +41,8 @@ public class JavaCountWordParaSentenceWhitespaceTextFile {
 			}
 
 		}
+
+		br.close();
 
 		System.out.println("Total number of words = " + countWord);
 
