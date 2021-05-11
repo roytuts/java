@@ -1,1 +1,1 @@
-You can read tutorial https://www.roytuts.com/send-bulk-mails-using-java/
+You can read tutorial https://roytuts.com/send-bulk-mails-using-java/
