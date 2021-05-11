@@ -45,7 +45,7 @@ public class BulkEmailSender {
 		// smtp email server
 		final String smtpHost = "your mail smtp server host";
 
-		// We will put some properties for smtp configurations
+		// will put some properties for smtp configurations
 		Properties props = new Properties();
 
 		// do not change - start
@@ -55,8 +55,8 @@ public class BulkEmailSender {
 		props.put("mail.smtp.auth", "true");
 		// do not change - end
 
-		// we authentcate using your email and password and on successful
-		// we create the session
+		// authentcate using your email and password and on successful
+		// create the session
 		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
@@ -67,7 +67,7 @@ public class BulkEmailSender {
 		String emails = null;
 
 		try {
-			// we create new message
+			// create new message
 			Message message = new MimeMessage(session);
 
 			// set the from 'email address'
