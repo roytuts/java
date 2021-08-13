@@ -17,6 +17,14 @@ public class ConsumerExample {
 		};
 
 		greets.forEach(consumer);
+
+		System.out.println("===============================");
+
+		User user = new User("Soumitra");
+		Consumer<User> updateName = u -> u.setName("Roytuts");
+		updateName.accept(user);
+
+		System.out.println(user.getName());
 	}
 
 }
