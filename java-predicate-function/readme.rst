@@ -1,0 +1,1 @@
+You can go through the tutorial https://roytuts.com/predicate-and-function-functional-interfaces-in-java-8-or-later/
