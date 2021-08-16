@@ -1,0 +1,1 @@
+You can go through the tutorial https://roytuts.com/java-8-default-and-static-methods-example/
