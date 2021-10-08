@@ -2,10 +2,15 @@ package com.roytuts.java.image.to.pdf;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -13,21 +18,26 @@ import com.itextpdf.text.pdf.PdfWriter;
 public class ImageToPdfConverter {
 
 	public static void main(String arg[]) throws Exception {
-		File root = new File("C:/Users/SoumitraSarkar/Desktop");
-		String outputFile = "sampleout.pdf";
+		convertImageToPdf("C:/files/input", "C:/files/output", "output.pdf");
+	}
 
-		List<String> files = new ArrayList<String>();
-		files.add("sample.jpg");
-		files.add("stored-procedure-spring.jpg");
-
+	public static void convertImageToPdf(final String fileInputPath, final String fileOuputPath,
+			final String outputFileName) throws DocumentException, IOException {
 		Document document = new Document();
-		PdfWriter.getInstance(document, new FileOutputStream(new File(root, outputFile)));
+		PdfWriter.getInstance(document, new FileOutputStream(new File(fileOuputPath, outputFileName)));
 		document.open();
 
-		for (String f : files) {
+		List<File> files = Files.list(Paths.get(fileInputPath)).map(Path::toFile).collect(Collectors.toList());
+
+		files.forEach(f -> {
 			document.newPage();
 
-			Image image = Image.getInstance(new File(root, f).getAbsolutePath());
+			Image image = null;
+			try {
+				image = Image.getInstance(new File(fileInputPath, f.getName()).getAbsolutePath());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 			image.setAlignment(Element.ALIGN_CENTER);
 
@@ -40,8 +50,12 @@ public class ImageToPdfConverter {
 				image.scalePercent(scaler);
 			}
 
-			document.add(image);
-		}
+			try {
+				document.add(image);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
 
 		document.close();
 	}
