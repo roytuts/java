@@ -6,11 +6,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class CsvReader {
 
 	public static void main(String[] args) throws IOException {
-		Path path = Paths.get("C:/jee_workspace/sample.csv");
+		// readCsv("sample.csv");
+		readCsv2("sample.csv");
+	}
+
+	public static void readCsv(final String fileName) throws IOException {
+		Path path = Paths.get(fileName);
 		byte[] bytes = Files.readAllBytes(path);
 
 		String str = new String(bytes);
@@ -21,7 +27,7 @@ public class CsvReader {
 
 		List<String> list = Arrays.asList(splitted);
 
-		//System.out.println();
+		// System.out.println();
 
 		boolean skipHeader = true;
 
@@ -42,6 +48,24 @@ public class CsvReader {
 
 			System.out.println("Sl No: " + sl + ", ID: " + id + ", Name: " + name + ", Manager: " + manager);
 		}
+	}
+
+	public static void readCsv2(final String fileName) throws IOException {
+		Path path = Paths.get(fileName);
+		Stream<String> lines = Files.lines(path).skip(1); // skipping the header
+
+		lines.forEach(line -> {
+			String[] info = line.split(",");
+
+			String sl = info[0];
+			String id = info[1];
+			String name = info[2];
+			String manager = info[3];
+
+			System.out.println("Sl No: " + sl + ", ID: " + id + ", Name: " + name + ", Manager: " + manager);
+		});
+
+		lines.close();
 	}
 
 }
