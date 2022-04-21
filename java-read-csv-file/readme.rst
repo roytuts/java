@@ -1,1 +1,1 @@
-You can go through the tutorial https://www.roytuts.com/how-to-read-csv-file-using-java-7-or-later/
+Please follow the tutorial https://roytuts.com/how-to-read-csv-file-using-java-7-or-later/
