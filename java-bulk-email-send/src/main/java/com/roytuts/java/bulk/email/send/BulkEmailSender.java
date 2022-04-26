@@ -1,119 +1,135 @@
 package com.roytuts.java.bulk.email.send;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
+import java.util.Objects;
 import java.util.Properties;
+import java.util.function.Function;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import jakarta.mail.Message;
+import jakarta.mail.MessagingException;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.AddressException;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 
 public class BulkEmailSender {
 
-	public static void main(String[] args) {
-		// create a list of emails
-		List<String> emails = new ArrayList<String>();
-		emails.add("email1@email.com");
-		emails.add("email2@email.com");
-		emails.add("email3@email.com");
-		emails.add("email4@email.com");
-		emails.add("email5@email.com");
-		
-		// email subject
-		String subject = "Test Email";
-		
-		// message which is to be sent
-		String message = "Test Email Message";
-		
-		// send the email to multiple recipients
-		sendBulkEmail(subject, emails, message);
+	private EmailInfo emailInfo;
+	private Properties emailConfig;
+	private MimeMessage mimeMessage;
+
+	public BulkEmailSender(EmailInfo emailInfo, Properties emailConfig) {
+		this.emailInfo = emailInfo;
+		this.emailConfig = emailConfig;
 	}
 
-	public static void sendBulkEmail(final String subject, final List<String> emailToAddresses,
-			final String emailBodyText) {
+	public EmailInfo getEmailInfo() {
+		return emailInfo;
+	}
 
-		// from email address
-		final String username = "your email address";
+	public void sendEmail(MimeMessage mimeMessage) {
+		try {
+			Transport.send(mimeMessage);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-		// make sure you put your correct password
-		final String password = "your email password";
+	public MimeMessage getMimeMessage() {
+		mimeMessage = buildMimeMessage();
+		return mimeMessage;
+	}
 
-		// smtp email server
-		final String smtpHost = "your mail smtp server host";
+	private MimeMessage buildMimeMessage() {
+		Session session = Session.getInstance(emailConfig);
+		MimeMessage mimeMessage = new MimeMessage(session);
 
-		// will put some properties for smtp configurations
-		Properties props = new Properties();
-
-		// do not change - start
-		props.put("mail.smtp.user", "username");
-		props.put("mail.smtp.host", smtpHost);
-		// props.put("mail.debug", "true");
-		props.put("mail.smtp.auth", "true");
-		// do not change - end
-
-		// authentcate using your email and password and on successful
-		// create the session
-		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-			@Override
-			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(username, password);
-			}
-		});
-
-		String emails = null;
+		// if you want to use authentication for your email, so "mail.smtp.auth" need to
+		// be set true
+		// Session session = Session.getInstance(emailConfig, new Authenticator() {
+		// @Override
+		// protected PasswordAuthentication getPasswordAuthentication() {
+		// return new PasswordAuthentication("username", "password");
+		// }
+		// });
 
 		try {
-			// create new message
-			Message message = new MimeMessage(session);
+			setFromAddress().andThen(setToAddress()).andThen(setCcAddress()).andThen(setSubject()).apply(mimeMessage);
 
-			// set the from 'email address'
-			message.setFrom(new InternetAddress(username));
+			mimeMessage.setSentDate(new Date());
+		} catch (Exception e) {
+			mimeMessage = null;
+			throw new RuntimeException("Error in setting from, to, cc address and subject of the email");
+		}
 
-			// set email subject
-			message.setSubject(subject);
+		return mimeMessage;
+	}
 
-			// set email message
-			// this will send html mail to the intended recipients
-			// if you do not want to send html mail then you do not need to wrap the message
-			// inside html tags
-			String content = "<html>\n<body>\n";
-			content += emailBodyText + "\n";
-			content += "\n";
-			content += "</body>\n</html>";
-			message.setContent(content, "text/html");
-
-			// form all emails in a comma separated string
-			StringBuilder sb = new StringBuilder();
-
-			int i = 0;
-			for (String email : emailToAddresses) {
-				sb.append(email);
-				i++;
-				if (emailToAddresses.size() > i) {
-					sb.append(", ");
+	private Function<MimeMessage, MimeMessage> setSubject() {
+		return mimeMessage -> {
+			if (!Objects.isNull(emailInfo.getSubject()) && !emailInfo.getSubject().isEmpty()) {
+				try {
+					mimeMessage.setSubject(emailInfo.getSubject());
+				} catch (Exception e) {
+					throw new RuntimeException("Could not set subject " + emailInfo.getSubject());
 				}
 			}
+			return mimeMessage;
+		};
+	}
 
-			emails = sb.toString();
+	private Function<MimeMessage, MimeMessage> setFromAddress() {
+		return mimeMessage -> {
+			if (!Objects.isNull(emailInfo.getFrom()) && !emailInfo.getFrom().isEmpty()) {
+				try {
+					mimeMessage.setFrom(new InternetAddress(emailInfo.getFrom().trim()));
+				} catch (Exception e) {
+					throw new RuntimeException("Could not resolve from address " + emailInfo.getFrom());
+				}
+			}
+			return mimeMessage;
+		};
+	}
 
-			// set 'to email address'
-			// you can set also CC or TO for recipient type
-			message.setRecipients(Message.RecipientType.BCC, InternetAddress.parse(sb.toString()));
+	private Function<MimeMessage, MimeMessage> setToAddress() {
+		return mimeMessage -> {
+			if (!Objects.isNull(emailInfo.getToList()) && !emailInfo.getToList().isEmpty()) {
+				try {
+					mimeMessage.setRecipients(Message.RecipientType.TO, emailInfo.getToList().stream().map(to -> {
+						try {
+							return new InternetAddress(to);
+						} catch (AddressException e) {
+							throw new RuntimeException("Could not resolve to address");
+						}
+					}).toArray(InternetAddress[]::new));
+				} catch (MessagingException e) {
+					throw new RuntimeException(
+							"Could not set to address in message " + emailInfo.getToList().toString());
+				}
+			}
+			return mimeMessage;
+		};
+	}
 
-			System.out.println("Sending Email to " + emails + " from " + username + " with Subject - " + subject);
-
-			// send the email
-			Transport.send(message);
-
-			System.out.println("Email successfully sent to " + emails);
-		} catch (MessagingException e) {
-			System.out.println("Email sending failed to " + emails);
-			System.out.println(e);
-		}
+	private Function<MimeMessage, MimeMessage> setCcAddress() {
+		return mimeMessage -> {
+			if (!Objects.isNull(emailInfo.getToList()) && !emailInfo.getCcList().isEmpty()) {
+				try {
+					mimeMessage.setRecipients(Message.RecipientType.CC, emailInfo.getCcList().stream().map(to -> {
+						try {
+							return new InternetAddress(to);
+						} catch (AddressException e) {
+							throw new RuntimeException("Could not resolve cc address");
+						}
+					}).toArray(InternetAddress[]::new));
+				} catch (MessagingException e) {
+					throw new RuntimeException(
+							"Could not set cc address in message " + emailInfo.getCcList().toString());
+				}
+			}
+			return mimeMessage;
+		};
 	}
 
 }
