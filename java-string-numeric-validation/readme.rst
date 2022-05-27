@@ -1,1 +1,1 @@
-You can read tutorial https://www.roytuts.com/verify-a-string-contains-only-numeric-value-in-java/
+Please follow the tutorial https://roytuts.com/verify-a-string-contains-only-numeric-value-in-java/
