@@ -1,1 +1,1 @@
-You can read tutorial at https://www.roytuts.com/find-start-and-end-index-of-a-given-element-in-a-sorted-array/
+Please follow the tutorial at https://roytuts.com/find-start-and-end-index-of-a-given-element-in-a-sorted-array/
