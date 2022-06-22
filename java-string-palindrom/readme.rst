@@ -1,1 +1,1 @@
-You can read tutorial https://www.roytuts.com/how-to-verify-a-string-is-palindrome-in-java/
+Please follow the tutorial https://roytuts.com/how-to-verify-a-string-is-palindrome-in-java/
