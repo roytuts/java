@@ -1,1 +1,1 @@
-You can go through the tutorial https://www.roytuts.com/map-json-string-to-pojo-objects-and-pojo-objects-to-json-string-in-java/
+Please follow the tutorial https://roytuts.com/gson-jackson-to-map-json-to-pojo-and-pojo-to-json/
