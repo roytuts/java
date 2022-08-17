@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ArrayMergeUniqueValues {
 
@@ -12,14 +14,30 @@ public class ArrayMergeUniqueValues {
 		String[] arr1 = new String[] { "Ava", "Emma", "Olivia" };
 		String[] arr2 = new String[] { "Olivia", "Sophia", "Emma" };
 
-		String[] arr = mergeArrays(arr1, arr2);
+		String[] arr = mergeArraysUnique1(arr1, arr2);
+
 		System.out.println(Arrays.toString(arr));
 
-		arr = mergeArrays2(arr1, arr2);
+		arr = mergeArraysUnique2(arr1, arr2);
+		System.out.println(Arrays.toString(arr));
+
+		arr = mergeArraysUnique3(arr1, arr2);
 		System.out.println(Arrays.toString(arr));
 	}
 
-	public static String[] mergeArrays(String[] arr1, String[] arr2) {
+	public static String[] mergeArraysUnique1(String[] names1, String[] names2) {
+		List<String> strings = Stream.of(names1, names2).flatMap(Stream::of).collect(Collectors.toList());
+
+		Set<String> uniqueNames = new HashSet<String>(strings);
+
+		String[] arr = new String[uniqueNames.size()];
+
+		uniqueNames.toArray(arr);
+
+		return arr;
+	}
+
+	public static String[] mergeArraysUnique2(String[] arr1, String[] arr2) {
 		List<String> list = new ArrayList<>(Arrays.asList(arr1));
 		list.addAll(Arrays.asList(arr2));
 
@@ -34,7 +52,7 @@ public class ArrayMergeUniqueValues {
 		return arr;
 	}
 
-	public static String[] mergeArrays2(String[] arr1, String[] arr2) {
+	public static String[] mergeArraysUnique3(String[] arr1, String[] arr2) {
 		String[] arr = new String[arr1.length + arr2.length];
 		int count = 0;
 
