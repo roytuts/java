@@ -1,1 +1,1 @@
-You can go through the tutorial https://www.roytuts.com/merge-two-string-arrays-and-produce-unique-values-using-java/
+Please follow the tutorial https://roytuts.com/merge-two-string-arrays-and-produce-unique-values-using-java/
