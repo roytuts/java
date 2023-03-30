@@ -1,1 +1,1 @@
-You can read tutorial at https://www.roytuts.com/create-http-server-in-java-to-serve-static-resources/
+Please follow the tutorial at https://roytuts.com/create-http-server-in-java-to-serve-static-resources/
