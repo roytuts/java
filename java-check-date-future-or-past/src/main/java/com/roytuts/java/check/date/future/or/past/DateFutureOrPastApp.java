@@ -3,89 +3,35 @@ package com.roytuts.java.check.date.future.or.past;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
 
 public class DateFutureOrPastApp {
 
 	public static void main(String[] args) {
 
-		final String pastMsg = "The input date is a past date";
-		final String todayMsg = "The input date is a today's date";
-		final String futureMsg = "The input date is a future date";
+		List<String> dates = Arrays.asList("2023-12-31", "2020-12-31", "2024-06-30", "2023-06-14", "2021-12-31",
+				"2019-03-21", "2023-10-09", "2022-04-26", "2023-09-06");
 
-		boolean isDatePast = isDatePast("2020-12-23", "yyyy-MM-dd");
-		boolean isDateToday = isDateToday("2020-12-23", "yyyy-MM-dd");
-		boolean isDateFuture = isDateFuture("2020-12-23", "yyyy-MM-dd");
+		final String df = "yyyy-MM-dd";
 
-		if (isDatePast) {
-			System.out.println(pastMsg);
-		}
-
-		if (isDateToday) {
-			System.out.println(todayMsg);
-		}
-
-		if (isDateFuture) {
-			System.out.println(futureMsg);
-		}
-
-		isDatePast = isDatePast("2020-12-29", "yyyy-MM-dd");
-		isDateToday = isDateToday("2020-12-29", "yyyy-MM-dd");
-		isDateFuture = isDateFuture("2020-12-29", "yyyy-MM-dd");
-
-		if (isDatePast) {
-			System.out.println(pastMsg);
-		}
-
-		if (isDateToday) {
-			System.out.println(todayMsg);
-		}
-
-		if (isDateFuture) {
-			System.out.println(futureMsg);
-		}
-
-		isDatePast = isDatePast("2020-12-31", "yyyy-MM-dd");
-		isDateToday = isDateToday("2020-12-31", "yyyy-MM-dd");
-		isDateFuture = isDateFuture("2020-12-31", "yyyy-MM-dd");
-
-		if (isDatePast) {
-			System.out.println(pastMsg);
-		}
-
-		if (isDateToday) {
-			System.out.println(todayMsg);
-		}
-
-		if (isDateFuture) {
-			System.out.println(futureMsg);
-		}
+		dates.forEach(d -> isDatePastTodayFuture(d, df));
 
 	}
 
-	public static boolean isDatePast(final String date, final String dateFormat) {
+	public static void isDatePastTodayFuture(final String date, final String dateFormat) {
 		LocalDate localDate = LocalDate.now(ZoneId.systemDefault());
 
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern(dateFormat);
 		LocalDate inputDate = LocalDate.parse(date, dtf);
 
-		return inputDate.isBefore(localDate);
+		if (inputDate.isBefore(localDate)) {
+			System.out.println("The input date '" + date + "' is a past date");
+		} else if (inputDate.isEqual(localDate)) {
+			System.out.println("The input date '" + date + "' is a today's date");
+		} else if (inputDate.isAfter(localDate)) {
+			System.out.println("The input date '" + date + "' is a future date");
+		}
 	}
 
-	public static boolean isDateToday(final String date, final String dateFormat) {
-		LocalDate localDate = LocalDate.now(ZoneId.systemDefault());
-
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern(dateFormat);
-		LocalDate inputDate = LocalDate.parse(date, dtf);
-
-		return inputDate.isEqual(localDate);
-	}
-
-	public static boolean isDateFuture(final String date, final String dateFormat) {
-		LocalDate localDate = LocalDate.now(ZoneId.systemDefault());
-
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern(dateFormat);
-		LocalDate inputDate = LocalDate.parse(date, dtf);
-
-		return inputDate.isAfter(localDate);
-	}
 }
