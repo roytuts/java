@@ -1,2 +1,2 @@
 cd \
-echo %path%
+%path%
