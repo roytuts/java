@@ -1,1 +1,1 @@
-You can read tutorial https://roytuts.com/how-to-reverse-a-string-without-affecting-special-characters-using-java/
+Please follow the tutorial https://roytuts.com/how-to-reverse-a-string-without-affecting-special-characters-using-java/
