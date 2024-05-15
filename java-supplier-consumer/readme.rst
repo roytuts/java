@@ -1,1 +1,1 @@
-You can go through the tutorial https://roytuts.com/java-supplier-consumer/
+Please follow the tutorial https://roytuts.com/java-supplier-consumer/
