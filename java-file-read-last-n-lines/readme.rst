@@ -1,1 +1,1 @@
-You can read the tutorial https://www.roytuts.com/read-last-n-lines-from-a-file/
+Please follow the tutorial https://roytuts.com/read-last-n-lines-from-a-file/
