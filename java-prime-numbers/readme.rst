@@ -1,1 +1,1 @@
-You can read tutorial https://www.roytuts.com/how-to-find-prime-numbers-using-java-programming-language/
+Please follow the tutorial https://roytuts.com/how-to-find-prime-numbers-using-java-programming-language/
