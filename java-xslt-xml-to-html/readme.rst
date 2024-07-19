@@ -1,1 +1,1 @@
-You can go through the tutorial https://www.roytuts.com/xml-to-html-using-xslt/
+Please follow the tutorial https://roytuts.com/xml-to-html-using-xslt/
