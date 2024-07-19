@@ -1,1 +1,1 @@
-You can read tutorial at https://www.roytuts.com/local-class-in-java/
+Please follow the tutorial https://roytuts.com/local-class-in-java/
