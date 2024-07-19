@@ -1,1 +1,1 @@
-You can read tutorial https://www.roytuts.com/find-largest-product-of-two-elements-in-an-array-using-java/
+Please follow the tutorial https://roytuts.com/find-largest-product-of-two-elements-in-an-array-using-java/
