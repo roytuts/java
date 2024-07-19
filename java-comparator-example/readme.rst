@@ -1,1 +1,1 @@
-You can read tutorial https://www.roytuts.com/comparator-interface-in-java/
+Please follow the tutorial https://roytuts.com/comparator-interface-in-java/
