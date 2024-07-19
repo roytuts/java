@@ -1,1 +1,1 @@
-You can read tutorial https://www.roytuts.com/how-threadlocal-works-in-java/
+Please follow the tutorial https://roytuts.com/how-threadlocal-works-in-java/
