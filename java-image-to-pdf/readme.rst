@@ -1,1 +1,1 @@
-You can read tutorial https://roytuts.com/convert-image-to-pdf-file-using-java/
+Please follow the tutorial https://roytuts.com/convert-image-to-pdf-file-using-java/
