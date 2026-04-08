@@ -7,6 +7,9 @@ public class TaskThread implements Runnable {
 	@Override
 	public void run() {
 		for (int i = 0; i < 3; i++) {
+			System.out.println("Thread: " + Thread.currentThread().getName() + " Formatted Date Time: "
+					+ ThreadLocalPerThread.formatDateTime(new Date()));
+			
 			System.out.println("Thread: " + Thread.currentThread().getName() + " Formatted Date: "
 					+ ThreadLocalPerThread.formatDate(new Date()));
 		}

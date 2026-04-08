@@ -13,8 +13,15 @@ public class ThreadLocalPerThread {
 		}
 	};
 
-	public static String formatDate(Date date) {
+	private static final ThreadLocal<SimpleDateFormat> formatter2 = ThreadLocal
+			.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd"));
+
+	public static String formatDateTime(Date date) {
 		return formatter.get().format(date);
+	}
+
+	public static String formatDate(Date date) {
+		return formatter2.get().format(date);
 	}
 
 }
